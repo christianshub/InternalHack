@@ -1,2 +1,1 @@
-# InternalHack
-PoC: DLL hack for Assault Cube
+Description is on it's way.
