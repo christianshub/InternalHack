@@ -1,5 +1,7 @@
 #include "Utility.h"
 
+
+
 uintptr_t FindAddress(uintptr_t base, std::vector<unsigned int> offsets)
 {
     if (offsets.size() == 0)
@@ -20,12 +22,6 @@ uintptr_t FindAddress(uintptr_t base, std::vector<unsigned int> offsets)
 
 uintptr_t FindAddress(uintptr_t base, std::vector<unsigned int> offsets, std::ostream& out)
 {
-    // No offsets given
-    if (offsets.size() == 0) 
-    {
-        return base;
-    }
-
     out << "base:              0x" << std::uppercase << std::hex << base << std::endl;
     out << "offsets[0]:        0x" << std::uppercase << std::hex << offsets[0] << std::endl;
     out << "base + offsets[0]: 0x" << std::uppercase << std::hex << (base + offsets[0]) << std::endl;

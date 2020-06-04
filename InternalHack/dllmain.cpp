@@ -30,9 +30,15 @@ DWORD __stdcall Hack(HMODULE hModule)
             std::string rawAmmoOffs = ReadKey("Config", "Ammunition", filePath);
             std::vector<unsigned int> ammoOffs = ParseOffsets(rawAmmoOffs);
 
+            // Get pointer chain iteration output
+            std::string fileName = GetDesktopPath() + "\\pointerChains.txt";
+            std::ofstream fout(fileName);
+
             // Iterate pointer chain
-            uintptr_t pAmmo = FindAddress(pModuleBase, ammoOffs);
-            
+            uintptr_t pAmmo = FindAddress(pModuleBase, ammoOffs, fout);
+
+            fout.close();
+
             // Change value
             *(int*) pAmmo = 1337;
         }
