@@ -1,51 +1,38 @@
 #include <iostream>
 #include "windows.h"
 #include "Keys.h"
+#include "Utility.h"
 
-DWORD WINAPI Hack(HMODULE hModule)
+DWORD __stdcall Hack(HMODULE hModule)
 {
-    //Create Console
+    // Hijack Console
     AllocConsole();
     FILE* f;
     freopen_s(&f, "CONOUT$", "w", stdout);
 
     std::cout << "\n======================  INTERNAL HACK INJECTED  ======================" << std::endl;
-    std::cout << "Press 'X'         Activate ammunition hack" << std::endl;
+    std::cout << "Press '8'         Activate ammunition hack" << std::endl;
 
-    std::cout << "Press 'C'         Detach hack from process" << std::endl;
+    std::cout << "Press '9'         Detach hack from process" << std::endl;
     std::cout << "======================================================================" << "\n" << std::endl;
 
-    uintptr_t pModuleBase = (uintptr_t)GetModuleHandle(L"ac_client.exe");
+    uintptr_t pModuleBase = (uintptr_t) GetModuleHandle(NULL); // We get the base from where we are, inside L"ac_client.exe"
 
     while (true)
     {
-        if (GetAsyncKeyState(KeyPress::VK_C) & 1)
+        if (GetAsyncKeyState(KeyPress::VK_8) & 1)
+        {
+            std::vector<unsigned int> relativeOffsets = { 0x10F4F4, 0x374, 0x14, 0x0 };
+
+            uintptr_t pAmmo = FindAddress(pModuleBase, relativeOffsets);
+            *(int*) pAmmo = 1337;
+        }
+
+        if (GetAsyncKeyState(KeyPress::VK_9) & 1)
         {
             std::cout << "Detaching... " << std::endl;
             Sleep(3000);
             break;
-        }
-
-        if (GetAsyncKeyState(KeyPress::VK_X) & 1)
-        {
-            // moduleBase: 400000, playerbase ptr: moduleBase + 0x10F4F4
-            std::cout << "moduleBase: " << std::uppercase << std::hex << pModuleBase << std::endl;
-
-            // Address 0x50F4F4
-            std::cout << "localPlayer pointer (moduleBase + 0x10F4F4)" << std::uppercase << std::hex << (pModuleBase + 0x10F4F4) << std::endl;
-
-            // 0x50F4F4 contains a ptr, pointing to playerbase.
-            uintptr_t pBaseAddress = *(uintptr_t*)(pModuleBase + 0x10F4F4);
-
-            std::cout << "pBaseAddress: " << std::uppercase << std::hex << (pBaseAddress) << std::endl;
-
-            int offsetAmmo = 0x150;
-
-            uintptr_t pAmmo = pBaseAddress + offsetAmmo;
-            std::cout << "pAmmo: " << std::uppercase << std::hex << (pAmmo) << std::endl;
-
-            int* ammo = (int*)pAmmo;
-            *ammo = 1337;
         }
         Sleep(100);
     }
@@ -72,3 +59,23 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     }
     return TRUE;
 }
+
+
+//// moduleBase: 400000, playerbase ptr: moduleBase + 0x10F4F4
+//std::cout << "moduleBase: " << std::uppercase << std::hex << pModuleBase << std::endl;
+//
+//// Address 0x50F4F4
+//std::cout << "localPlayer pointer (moduleBase + 0x10F4F4)" << std::uppercase << std::hex << (pModuleBase + 0x10F4F4) << std::endl;
+//
+//// 0x50F4F4 contains a ptr, pointing to playerbase.
+//uintptr_t pBaseAddress = *(uintptr_t*)(pModuleBase + 0x10F4F4);
+//
+//std::cout << "pBaseAddress: " << std::uppercase << std::hex << (pBaseAddress) << std::endl;
+//
+//int offsetAmmo = 0x150;
+//
+//uintptr_t pAmmo = pBaseAddress + offsetAmmo;
+//std::cout << "pAmmo: " << std::uppercase << std::hex << (pAmmo) << std::endl;
+//
+//int* ammo = (int*)pAmmo;
+//*ammo = 1337;
