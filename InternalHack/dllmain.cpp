@@ -1,7 +1,10 @@
 #include <iostream>
 #include "windows.h"
 #include "Keys.h"
-#include "Utility.h"
+#include "Utility/Utility.h"
+#include "Config/Config.h"
+#include "Config/ConfigParser.h"
+
 
 DWORD __stdcall Hack(HMODULE hModule)
 {
@@ -22,9 +25,15 @@ DWORD __stdcall Hack(HMODULE hModule)
     {
         if (GetAsyncKeyState(KeyPress::VK_8) & 1)
         {
-            std::vector<unsigned int> relativeOffsets = { 0x10F4F4, 0x374, 0x14, 0x0 };
+            // Config.ini check and parse it's offsets
+            std::string filePath = VerifyINI("Hack", "config.ini", { "[Config]", "Ammunition=" });
+            std::string rawAmmoOffs = ReadKey("Config", "Ammunition", filePath);
+            std::vector<unsigned int> ammoOffs = ParseOffsets(rawAmmoOffs);
 
-            uintptr_t pAmmo = FindAddress(pModuleBase, relativeOffsets);
+            // Iterate pointer chain
+            uintptr_t pAmmo = FindAddress(pModuleBase, ammoOffs);
+            
+            // Change value
             *(int*) pAmmo = 1337;
         }
 
