@@ -28,6 +28,7 @@ Currently the hack only changes ammunition (it's a proof of concept currently).
 <img src="https://github.com/christianshub/InternalHack/blob/master/Snapshots/AfterHack.png" height="400" width="600">
 
 
-### Credits
+### References
+
 
 - [Guided hacking](https://guidedhacking.com/threads/finddmaaddy-c-multilevel-pointer-function.6292/) (pointer chain function)
