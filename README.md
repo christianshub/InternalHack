@@ -22,16 +22,16 @@ Console options once injected into a game:
 
 ## Before/after hack activation
 
-### Before
+#### Before
 
 <img src="https://github.com/christianshub/InternalHack/blob/master/Snapshots/BeforeHack.png" height="200" width="600">
 
-### After
+#### After
 
 <img src="https://github.com/christianshub/InternalHack/blob/master/Snapshots/AfterHack.png" height="200" width="600">
 
 
-### References
+## References
 
 
 - [Guided hacking](https://guidedhacking.com/threads/finddmaaddy-c-multilevel-pointer-function.6292/) (pointer chain function)
