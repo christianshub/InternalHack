@@ -34,4 +34,4 @@ Currently the hack only changes ammunition (it's a proof of concept currently).
 
 ### Credits
 
-- Guided hacking (pointer chain function): https://guidedhacking.com/threads/finddmaaddy-c-multilevel-pointer-function.6292/
+- [Guided hacking](https://guidedhacking.com/threads/finddmaaddy-c-multilevel-pointer-function.6292/) (pointer chain function): 
