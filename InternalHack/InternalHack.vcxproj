@@ -162,13 +162,15 @@
     <ClCompile Include="Config\Config.cpp" />
     <ClCompile Include="Config\ConfigParser.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="Utility\Utility.cpp" />
+    <ClCompile Include="Utility\PtrChains.cpp" />
+    <ClCompile Include="Utility\StrManipulation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config\Config.h" />
     <ClInclude Include="Config\ConfigParser.h" />
-    <ClInclude Include="Keys.h" />
-    <ClInclude Include="Utility\Utility.h" />
+    <ClInclude Include="Utility\Keys.h" />
+    <ClInclude Include="Utility\PtrChains.h" />
+    <ClInclude Include="Utility\StrManipulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

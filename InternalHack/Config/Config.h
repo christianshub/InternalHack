@@ -6,16 +6,13 @@
 #include <algorithm>
 #include <vector>
 
+#include "../Utility/StrManipulation.h"
+
 /// <summary>
 /// Gets desktop path
 /// </summary>
 /// <returns>C:\Users\USER\Desktop\</returns>
 std::string GetDesktopPath();
-
-/// <summary>
-/// Strips all substrings from string
-/// </summary>
-std::string EraseAllSubStr(std::string& mainStr, const std::string& toErase);
 
 /// <summary>
 /// Strips filename from known file endings and backslashes
