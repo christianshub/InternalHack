@@ -1,8 +1,8 @@
 ## Introduction 
 
-`InternalHack` is a DLL hack for the game, [Assault Cube](https://assault.cubers.net/). Currently, the hack only changes a player's ammunition. This can easily be extended.
+`InternalHack` is a DLL hack for the game, [Assault Cube](https://assault.cubers.net/). `InternalHack` has to be injected into the game's process. From there it creates a console, givning the user options to activate hack or deactivate the hack. 
 
-`InternalHack` has to be injected into the game's process. From there it creates a console, givning the user options to activate hack or deactivate the hack. 
+Currently, the hack only changes a player's ammunition. This can easily be extended.
 
 Console options once injected into a game:
 
