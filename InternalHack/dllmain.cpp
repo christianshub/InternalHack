@@ -25,6 +25,8 @@ DWORD __stdcall Hack(HMODULE hModule)
     {
         if (GetAsyncKeyState(KeyPress::VK_8) & 1)
         {
+            std::cout << "Internal hack activated!" << std::endl;
+
             // Config.ini check and parse it's offsets
             std::string filePath = VerifyINI("Hack", "config.ini", { "[Config]", "Ammunition=" });
             std::string rawAmmoOffs = ReadKey("Config", "Ammunition", filePath);
