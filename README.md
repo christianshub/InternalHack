@@ -19,17 +19,13 @@ Currently the hack only changes ammunition (it's a proof of concept currently).
 
 ## Snapshots
 
-### Successful injection
+### Before
 
-<img src="https://github.com/christianshub/DLL-Injector/blob/master/Snapshots/Success.png" height="200" width="600">
+<img src="https://github.com/christianshub/InternalHack/blob/master/Snapshots/BeforeHack.png" height="200" width="600">
 
-### Failed injection: No target process open
+### After
 
-<img src="https://github.com/christianshub/DLL-Injector/blob/master/Snapshots/Fail1.png" height="200" width="600">
-
-### Failed injection: No target name in config.ini:
-
-<img src="https://github.com/christianshub/DLL-Injector/blob/master/Snapshots/Fail2.png" height="200" width="600">
+<img src="https://github.com/christianshub/InternalHack/blob/master/Snapshots/AfterHack.png" height="200" width="600">
 
 
 ### Credits
