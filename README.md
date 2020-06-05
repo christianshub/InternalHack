@@ -14,7 +14,7 @@ Currently the hack only changes ammunition (it's a proof of concept currently).
 
 1. Compile the source code
 2. Run it one time - a folder and a `config.ini` file should be created on your desktop.
-3. Navigate to `Desktop/Injector/config.ini`.
+3. Navigate to `Desktop/Hack/config.ini`.
 4. Fill in info about the offsets to the ammunition value (currently `Ammunition=0x10F4F4, 0x150`)
 
 ## Snapshots
