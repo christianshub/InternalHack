@@ -20,7 +20,7 @@ Console options once injected into a game:
 3. Navigate to `Desktop/Hack/config.ini`.
 4. Fill in info about the offsets to the ammunition value (currently `Ammunition=0x10F4F4, 0x150`)
 
-## Snapshots
+## Before/after hack activation
 
 ### Before
 
