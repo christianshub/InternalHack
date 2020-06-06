@@ -76,23 +76,3 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     }
     return TRUE;
 }
-
-
-//// moduleBase: 400000, playerbase ptr: moduleBase + 0x10F4F4
-//std::cout << "moduleBase: " << std::uppercase << std::hex << pModuleBase << std::endl;
-//
-//// Address 0x50F4F4
-//std::cout << "localPlayer pointer (moduleBase + 0x10F4F4)" << std::uppercase << std::hex << (pModuleBase + 0x10F4F4) << std::endl;
-//
-//// 0x50F4F4 contains a ptr, pointing to playerbase.
-//uintptr_t pBaseAddress = *(uintptr_t*)(pModuleBase + 0x10F4F4);
-//
-//std::cout << "pBaseAddress: " << std::uppercase << std::hex << (pBaseAddress) << std::endl;
-//
-//int offsetAmmo = 0x150;
-//
-//uintptr_t pAmmo = pBaseAddress + offsetAmmo;
-//std::cout << "pAmmo: " << std::uppercase << std::hex << (pAmmo) << std::endl;
-//
-//int* ammo = (int*)pAmmo;
-//*ammo = 1337;
